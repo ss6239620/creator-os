@@ -11,6 +11,7 @@
     "dev:down": "docker compose -f docker-compose.dev.yml down --remove-orphans",
     "api:serve": "pnpm --filter @creator-os/api... serve",
     "web:serve": "pnpm --filter @creator-os/web... serve",
+    "db:seed": "pnpm --filter @creator-os/database... db:seed",
     "build": "turbo build",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",

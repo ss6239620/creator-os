@@ -6,8 +6,13 @@
   "exports": {
     ".": "./index.ts"
   },
+  "prisma": {
+    "schema": "prisma/schema.prisma"
+  },
   "scripts": {
     "prisma:generate": "prisma generate",
+    "migrate:dev": "prisma migrate dev",
+    "db:seed": "tsx seed.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "node -e \"process.exit(0)\"",
     "build": "node -e \"process.exit(0)\""
@@ -16,6 +21,7 @@
     "@prisma/client": "^6.7.0"
   },
   "devDependencies": {
-    "prisma": "^6.7.0"
+    "prisma": "^6.7.0",
+    "tsx": "^4.20.5"
   }
 }
