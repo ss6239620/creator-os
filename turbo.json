@@ -1,8 +1,28 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
+  "globalDependencies": [".env"],
+  "globalEnv": [
+    "NODE_ENV",
+    "DATABASE_URL",
+    "REDIS_URL",
+    "NATS_URL",
+    "JWT_SECRET",
+    "JWT_EXPIRES_IN",
+    "REFRESH_TOKEN_EXPIRES_IN",
+    "WEB_URL",
+    "API_URL",
+    "PORT",
+    "API_PORT",
+    "WEB_PORT",
+    "WORKER_PORT"
+  ],
   "tasks": {
     "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "serve": {
       "cache": false,
       "persistent": true
     },

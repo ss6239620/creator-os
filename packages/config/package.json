@@ -4,11 +4,21 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./index.ts"
+    ".": "./dist/index.js",
+    "./env": "./dist/env.js"
   },
   "scripts": {
-    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
     "lint": "node -e \"process.exit(0)\"",
-    "build": "node -e \"process.exit(0)\""
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "typescript": "^5.8.3"
   }
 }

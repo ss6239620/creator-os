@@ -6,6 +6,10 @@ import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 import helmet from "helmet";
 import { WinstonModule } from "nest-winston";
 import winston from "winston";
+import { validateEnv, getApiPort } from "@creator-os/config";
+
+// Validate env (already loaded by dotenv-cli in npm script)
+const env = validateEnv();
 
 import { AppModule } from "./app.module";
 
@@ -49,7 +53,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("docs", app, document);
 
-  const port = Number(process.env.PORT ?? 4000);
+  const port = getApiPort(env);
   await app.listen(port);
 }
 

@@ -18,7 +18,8 @@
     "build": "node -e \"process.exit(0)\""
   },
   "dependencies": {
-    "@prisma/client": "^6.7.0"
+    "@prisma/client": "^6.7.0",
+    "dotenv": "^16.6.1"
   },
   "devDependencies": {
     "prisma": "^6.7.0",

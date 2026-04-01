@@ -1,8 +1,11 @@
 import { Worker } from "bullmq";
 import Redis from "ioredis";
+import { validateEnv } from "@creator-os/config/env";
 
-const redisUrl = process.env.REDIS_URL ?? "redis://localhost:6379";
-const connection = new Redis(redisUrl, { maxRetriesPerRequest: null });
+// Validate env (already loaded by dotenv-cli in npm script)
+const env = validateEnv();
+
+const connection = new Redis(env.REDIS_URL, { maxRetriesPerRequest: null });
 
 const workers = [
   new Worker(
